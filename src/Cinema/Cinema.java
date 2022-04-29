@@ -7,10 +7,10 @@ public class Cinema {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        // start coding here
 
         int nRows, nSeats, curSeat, curRow;
 
+        //Requesting room size
         while(true) {
             System.out.println("Enter the number of rows:");
             nRows = scanner.nextInt();
@@ -30,20 +30,25 @@ public class Cinema {
             }
         }
 
-        String[][] nRoom = new String[nRows][nSeats];
+        //Calculating total possible income of the cinema, if all tickets are sold
         int totalIncome = nRows * nSeats <= 60 ? 10 * nRows * nSeats :
                 10 * nSeats * (nRows / 2) + (nRows * nSeats - nSeats * (nRows / 2)) * 8;
         int curIncome = 0;
         int ticketsPurchased = 0;
 
-        //Filing array with "S"
+        //Creating visual representation of the room, very seat shows as "S"
+        String[][] nRoom = new String[nRows][nSeats];
         for (int i = 0; i < nRows; i++) {
             for (int j = 0; j < nSeats; j++) {
                 nRoom[i][j] = "S";
             }
         }
 
-        //Menu
+        //Cycling through menu
+        //1. Show the seats
+        //2. Buy a ticket
+        //3. Statistics
+        //0. Exit
         while(true){
             System.out.println("\n1. Show the seats\n2. Buy a ticket\n3. Statistics\n0. Exit");
             int input = scanner.nextInt();
@@ -92,6 +97,7 @@ public class Cinema {
         }
     }
 
+    //showing visual state of the room, "S" - unsold tickets, "B" - sold tickets.
     public static void printRoomState(String[][] seats) {
 
         System.out.println("Cinema:");

@@ -36,7 +36,7 @@ public class Cinema {
         int curIncome = 0;
         int ticketsPurchased = 0;
 
-        //Creating visual representation of the room, very seat shows as "S"
+        //Creating a visual representation of the room, every unsold seat shows as "S"
         String[][] nRoom = new String[nRows][nSeats];
         for (int i = 0; i < nRows; i++) {
             for (int j = 0; j < nSeats; j++) {
@@ -85,7 +85,6 @@ public class Cinema {
                 ticketsPurchased++;
                 nRoom[curRow - 1][curSeat - 1] = "B";
                 System.out.println("\nTicket price: $" + tCost);
-
             }else if (input == 3) {
                 System.out.printf("%nNumber of purchased tickets :%d%nPercentage :%.2f%%%nCurrent income :$%d%nTotal income :$%d%n%n",
                         ticketsPurchased,100 * (float)ticketsPurchased/(nRows * nSeats),curIncome,totalIncome);
@@ -97,16 +96,14 @@ public class Cinema {
         }
     }
 
-    //showing visual state of the room, "S" - unsold tickets, "B" - sold tickets.
+    //Showing a visual state of the room, "S" - unsold tickets, "B" - sold tickets.
     public static void printRoomState(String[][] seats) {
-
         System.out.println("Cinema:");
         System.out.print(" ");
         for (int i = 0; i < seats[0].length; i++) {
             System.out.print(" " + (i + 1));
         }
         System.out.println();
-        //Room
         for (int i = 0; i < seats.length; i++) {
             System.out.print(i + 1);
             for (int j = 0; j < seats[0].length; j++) {
@@ -115,7 +112,6 @@ public class Cinema {
             System.out.println();
         }
         System.out.println();
-
     }
 
 }
